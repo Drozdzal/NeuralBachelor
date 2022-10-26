@@ -33,10 +33,10 @@ w, h = im.shape[0], im.shape[1]
 # We will first manually select the source points
 # we will select the destination point which will map the source points in
 # original image to destination points in unwarped image
-src = np.float32([(20,     1),
-                  (540,  130),
-                  (20,    520),
-                  (570,  450)])
+src = np.float32([  88., 1507.],
+        [ 279., 1515.],
+        [ 250., 1701.],
+        [  52., 1701.])
 
 dst = np.float32([(600, 0),
                   (0, 0),
