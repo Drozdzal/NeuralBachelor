@@ -248,7 +248,6 @@ class Chessboard_Vision:
                     lower_left_corner=(int(x-0.5*w),int(y-0.5*h))
                     cv2.rectangle(self.transformed_image,upper_right_corner,lower_left_corner,(0,255,0), 3)
                 cv2.imwrite('result.jpg',self.transformed_image)
-                cv2.waitKey()
 
     def get_pieces_dict(self):
         print(self.pieces_dictionary)
