@@ -27,6 +27,7 @@ class ChessboardDetector(BaseOperations):
         frame_markers = aruco.drawDetectedMarkers(self.image.copy(), corners, ids)
         aruco_corners_list = []
         colors = [(255, 0, 0), (0, 255, 0), (0, 0, 255), (255, 0, 255)]
+        print(f"Frame markes {frame_markers}")
         for id in range(len(ids)):
             one_corner = corners[id][0][0]
             aruco_corners_list.append([int(one_corner[0]), int(one_corner[1])])
@@ -88,7 +89,8 @@ class ChessboardDetector(BaseOperations):
         pass
 
 
-image = cv2.imread('aruco4.png')
-chessboard=machine=ChessboardDetector('multiple_aruco')
-chessboard.set_image(image)
-chessboard.detect()
+# image = cv2.imread('tescik.jpg')
+# chessboard=ChessboardDetector('multiple_aruco')
+# chessboard.set_image(image)
+# chessboard.detect()
+# print(chessboard.dictionary)

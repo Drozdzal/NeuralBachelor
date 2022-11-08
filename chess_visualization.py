@@ -1,11 +1,26 @@
 import chess
-from chessboard import display
+import chess.svg
 from time import sleep
+from PyQt5.QtSvg import QSvgWidget
+from PyQt5.QtWidgets import QApplication, QWidget
 
+class MainWindow(QWidget):
+    def __init__(self):
+        super().__init__()
+    def set_board(self,board):
+            self.setGeometry(100, 100, 1100, 1100)
 
+            self.widgetSvg = QSvgWidget(parent=self)
+            self.widgetSvg.setGeometry(10, 10, 1080, 1080)
+
+            self.chessboard = board
+            print(board)
+
+            self.chessboardSvg = chess.svg.board(self.chessboard).encode("UTF-8")
+            self.widgetSvg.load(self.chessboardSvg)
 class ChessVisualizer:
     def __init__(self):
-        self.chessboard=display.start()
+
         self.board=chess.Board()
         self.board.clear_board()
         self.actualize_board()
@@ -85,7 +100,8 @@ class ChessVisualizer:
 
     def actualize_board(self):
         try:
-            display.update(self.board.fen(),self.chessboard)
+            return self.board
+            print("actualie")
         except Exception as e:
             print(f"Couldnt actualize display \n {e}")
 
@@ -108,19 +124,25 @@ class ChessVisualizer:
         return piece
 
     def __del__(self):
-        display.terminate()
+        #display.terminate()
+        pass
 
 
 
-board = chess.Board()
-chessboard=ChessVisualizer()
-while True:
-        try:
-            piece=input('wpisz pionek')
-            pole=input('wpisz pole')
-            chessboard.set_piece_on_field(piece,pole)
-            chessboard.actualize_board()
-        except Exception as e:
-            print(f"Error with piece type again {e}")
-        sleep(1)
+# chessboard=ChessVisualizer()
+# app = QApplication([])
+# window = MainWindow()
+#
+# while True:
+#         try:
+#             piece=input('wpisz pionek')
+#             pole=input('wpisz pole')
+#             chessboard.set_piece_on_field(piece,pole)
+#             board=chessboard.actualize_board()
+#             window.set_board(board)
+#             window.show()
+#         except Exception as e:
+#             print(f"Error with piece type again {e}")
+#         app.exec()
+#         sleep(1)
 
