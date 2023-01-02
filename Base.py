@@ -60,7 +60,7 @@ class BaseOperations(ABC):
                 h=float(h)
                 upper_right_corner=(int(x+0.5*w),int(y+0.5*h))
                 lower_left_corner=(int(x-0.5*w),int(y-0.5*h))
-                cv2.rectangle(self.transformed_image,upper_right_corner,lower_left_corner,(0,255,0), 3)
+                cv2.rectangle(self.transformed_image,upper_right_corner,lower_left_corner,(0,255,0), 6)
             cv2.imwrite('result.jpg',self.transformed_image)
         else:
             print("Dictionary not set")

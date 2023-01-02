@@ -87,9 +87,9 @@ class ChessboardDetector(BaseOperations):
 
     def cnn_detect(self):
         pass
-
-
-# image = cv2.imread('tescik.jpg')
+#
+#
+# image = cv2.imread('testo.jpg')
 # chessboard=ChessboardDetector('multiple_aruco')
 # chessboard.set_image(image)
 # chessboard.detect()
